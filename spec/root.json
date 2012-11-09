@@ -1,0 +1,77 @@
+{
+  "assignedLabels" : [
+    {
+      
+    }
+  ],
+  "mode" : "EXCLUSIVE",
+  "nodeDescription" : "the master Jenkins node",
+  "nodeName" : "",
+  "numExecutors" : 2,
+  "description" : null,
+  "jobs" : [
+    {
+      "name" : "config-provider-model",
+      "url" : "http://myjenkinshost.com/job/config-provider-model/",
+      "color" : "red"
+    },
+    {
+      "name" : "core_selenium-test",
+      "url" : "http://myjenkinshost.com/job/core_selenium-test/",
+      "color" : "red"
+    },
+    {
+      "name" : "gerrit_master",
+      "url" : "http://myjenkinshost.com/job/gerrit_master/",
+      "color" : "blue"
+    }
+  ],
+  "overallLoad" : {
+    
+  },
+  "primaryView" : {
+    "name" : "All Failed",
+    "url" : "http://ci.jenkins-ci.org/"
+  },
+  "quietingDown" : false,
+  "slaveAgentPort" : 47278,
+  "unlabeledLoad" : {
+    
+  },
+  "useCrumbs" : true,
+  "useSecurity" : true,
+  "views" : [
+    {
+      "name" : "All",
+      "url" : "http://ci.jenkins-ci.org/view/All/"
+    },
+    {
+      "name" : "All Disabled",
+      "url" : "http://ci.jenkins-ci.org/view/All%20Disabled/"
+    },
+    {
+      "name" : "All Failed",
+      "url" : "http://ci.jenkins-ci.org/"
+    },
+    {
+      "name" : "All Unstable",
+      "url" : "http://ci.jenkins-ci.org/view/All%20Unstable/"
+    },
+    {
+      "name" : "Infrastructure",
+      "url" : "http://ci.jenkins-ci.org/view/Infrastructure/"
+    },
+    {
+      "name" : "Jenkins core",
+      "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/"
+    },
+    {
+      "name" : "Libraries",
+      "url" : "http://ci.jenkins-ci.org/view/Libraries/"
+    },
+    {
+      "name" : "Other Projects",
+      "url" : "http://ci.jenkins-ci.org/view/Other%20Projects/"
+    }
+  ]
+}
