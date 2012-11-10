@@ -1,0 +1,24 @@
+#!/usr/bin/ruby
+
+require 'trollop'
+require_relative '../lib/jenkins-json-api'
+
+# argparsing and handling
+opts = Trollop::options do
+  opt :host, "host of Jenkins instance", type: String
+end
+
+# TODO write scenarion for mandatory host parameter
+# Trollop::die :host, "mandatory" unless opts[:host]
+
+jenkins = Jenkins.new opts[:host]
+
+
+jenkins.get_all_jobs.each do |job|
+  name = job.name
+  succ_str = 'failed'
+  succ_str = 'success' if job.success?
+  puts "#{name} #{succ_str}"
+end
+
+
