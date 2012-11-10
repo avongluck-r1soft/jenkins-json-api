@@ -20,6 +20,16 @@ class Jenkins
       raise "Inconsistent class state! color: #{color}"
     end
 
+    def to_s
+      "\n  #{super.to_s}\n    name: #{name}\n    url: #{url}\n    success: #{success?}\n"
+    end
+
+    def ==(r)
+      r.name == name and
+      r.url  == url  and
+      r.success? == success?
+    end
+
     attr_reader :name, :url, :color
   end
 
