@@ -1,6 +1,7 @@
 
-Given /^jobs in jenkins "(.*?)", "(.*?)", with statuses "(.*?)", "(.*?)"$/ do |job1, job2, stat1, stat2|
-  mock_resp do
+
+Given /^jenkins on port "(.*?)" with jobs "(.*?)", "(.*?)" with statuses respectively "(.*?)", "(.*?)"$/ do |port, job1, job2, stat1, stat2|
+  mock_resp(port: port) do
     get('/api/json') do
       # TODO nicer jenkins response generation
       { 'jobs' => [ { 'name' => job1, 'color' => status_to_color(stat1) },
