@@ -18,6 +18,8 @@ describe Jenkins do
 
   let(:json_hash) { { 'jobs' => [ job1_hash, job2_hash ] } }
 
+  let(:jobs) { [ Jenkins::Job.new(job1_hash), Jenkins::Job.new(job2_hash) ] }
+
   context "get_all_jobs success" do
     before(:each) { JSON.should_receive(:parse).and_return( json_hash ) }
     before(:each) { subject.stub_chain(:open,:read) }
@@ -25,7 +27,15 @@ describe Jenkins do
     its(:get_all_jobs) { should have(2).items }
 
     its(:get_all_jobs) do
-      should =~ [ Jenkins::Job.new(job1_hash), Jenkins::Job.new(job2_hash) ]
+      should =~ jobs
+    end
+  end
+
+  context "build_all" do
+    it "should send build URL for all jobs" do
+      jobs.each { |job| job.should_receive :build }
+      subject.should_receive( :get_all_jobs ).and_return jobs
+      subject.build_all
     end
   end
 end
