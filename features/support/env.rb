@@ -6,7 +6,7 @@ RJJA_BIN='bin/rjja'
 def exec_cli(params)
   cmd = "#{RJJA_BIN} #{params}"
   puts cmd
-  ret = `#{cmd}`
+  ret = `#{cmd} 2>&1`
   puts "RETURNED:\n---------\n#{ret}\n-----------"
   ret
 end

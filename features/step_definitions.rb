@@ -16,8 +16,17 @@ When /^I execute rjja with parameters "(.*?)"$/ do |params|
   @resp = exec_cli params
 end
 
-Then /^it should print lines "(.*?)", "(.*?)"$/ do |line1, line2|
-  @resp.split("\n").should =~ [line1,line2]
+Then /^it should print "(.*?)"$/ do |line1|
+  lines = line1.split /"\s*,\s*"/
+  #@resp.chomp.should == line1
+  @resp.split("\n").should =~ lines
 end
 
+Given /^the rjja binary$/ do
+  # TODO  File.exists
+end
+
+Then /^it should print the usage$/ do
+  pending # express the regexp above with the code you wish you had
+end
 

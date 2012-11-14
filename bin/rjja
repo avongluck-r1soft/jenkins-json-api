@@ -1,24 +1,46 @@
 #!/usr/bin/ruby
 
 require 'trollop'
+require 'resolv'
+
 require_relative '../lib/jenkins-json-api'
 
 # argparsing and handling
+SUB_COMMANDS = %w( job )
 opts = Trollop::options do
   opt :host, "host of Jenkins instance", type: String
+  stop_on SUB_COMMANDS
 end
 
-# TODO write scenarion for mandatory host parameter
-# Trollop::die :host, "mandatory" unless opts[:host]
+Trollop::die :host, "mandatory" unless opts[:host]
+
+cmd = ARGV.shift
+cmd_opts = case cmd
+  when "job"
+    subcmd = ARGV.shift
+    case subcmd
+      when "list"
+    # else
+    #   Trollop::die "unknown subcommand #{subcmd.inspect}"
+    end
+  #else
+  #  Trollop::die "unknown subcommand #{cmd.inspect}"
+  end
 
 jenkins = Jenkins.new opts[:host]
 
-
-jenkins.get_all_jobs.each do |job|
-  name = job.name
-  succ_str = 'failed'
-  succ_str = 'success' if job.success?
-  puts "#{name} #{succ_str}"
+hostname, port = opts[:host].split ':'
+begin
+  Resolv.getaddress hostname
+  jenkins.get_all_jobs.each do |job|
+    name = job.name
+    succ_str = 'failed'
+    succ_str = 'success' if job.success?
+    puts "#{name} #{succ_str}"
+  end
+rescue Resolv::ResolvError, OpenURI::HTTPError
+  puts "Error: Network error"
+  exit 2
 end
 
 
