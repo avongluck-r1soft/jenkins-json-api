@@ -11,8 +11,9 @@ Feature: handling errors in rjja
   Scenario: no action given
     Given the rjja binary
     When I execute rjja with parameters "--host=somehost"
-    Then it should print "Error: Network error"
+    Then it should print "Error: no action given.", "Try --help for help."
 
-  # Scenario: non-existent host
-  #  Given the rjja binary
-  #  When I execute rjja with parameter "--host=asdf"
+  Scenario: non-existent host
+    Given the rjja binary
+    When I execute rjja with parameters "--host=asdf job list"
+    Then it should print "Error: Network error"
