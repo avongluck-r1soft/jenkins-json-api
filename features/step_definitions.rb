@@ -1,5 +1,5 @@
 
-
+# TODO nicer step-def code, more support code
 Given /^jenkins on port "(.*?)" with jobs "(.*?)", "(.*?)" with statuses respectively "(.*?)", "(.*?)"$/ do |port, job1, job2, stat1, stat2|
   mock_resp(port: port) do
     get('/api/json') do

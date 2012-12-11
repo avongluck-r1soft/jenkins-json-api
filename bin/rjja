@@ -29,7 +29,7 @@ cmd_opts = case cmd
 
 Trollop::die "no action given" if cmd.nil?
 
-jenkins = Jenkins.new opts[:host]
+jenkins = Jenkins::Jenkins.new opts[:host]
 
 hostname, port = opts[:host].split ':'
 begin

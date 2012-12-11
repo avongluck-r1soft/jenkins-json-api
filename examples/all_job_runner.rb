@@ -1,6 +1,6 @@
 require 'jenkins-json-api'
 
-jenkins = Jenkins.new 'myjenkinshost:80'
+jenkins = Jenkins::Jenkins.new 'myjenkinshost:80'
 
 
 jenkins.get_all_jobs.each do |job|

@@ -3,8 +3,8 @@ require 'spec_helper'
 
 require_relative '../lib/jenkins-json-api'
 
-describe Jenkins do
-  subject { Jenkins.new testhost }
+describe Jenkins::Jenkins do
+  subject { Jenkins::Jenkins.new testhost }
   let(:testhost) { 'myjenkinshost.com' }
 
   its(:host) { should == testhost }
