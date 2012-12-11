@@ -5,7 +5,7 @@ require 'jenkins-json-api/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "jenkins-json-api"
-  gem.version       = Jenkins::Json::Api::VERSION
+  gem.version       = Jenkins::VERSION
   gem.authors       = ["Marton Suranyi"]
   gem.email         = ["marton.suranyi@gmail.com"]
   gem.description   = %q{Ruby wrapper for Jenkins JSON API}
