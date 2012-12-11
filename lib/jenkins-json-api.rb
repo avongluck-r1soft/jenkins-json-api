@@ -20,6 +20,17 @@ class Jenkins
       raise "Inconsistent class state! color: #{color}"
     end
 
+    def build
+      open url+'build'
+    end
+
+    def build_async
+      Process.waitpid @job if @job
+      @job = fork do
+        build
+      end
+    end
+
     def to_s
       "\n  #{super.to_s}\n    name: #{name}\n    url: #{url}\n    success: #{success?}\n"
     end
