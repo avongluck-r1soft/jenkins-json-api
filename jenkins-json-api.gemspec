@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["marton.suranyi@gmail.com"]
   gem.description   = %q{Ruby wrapper for Jenkins JSON API}
   gem.summary       = %q{Very experimental!}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/susu/jenkins-json-api"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
