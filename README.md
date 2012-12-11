@@ -25,6 +25,8 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+see ```examples/```
+
 ## Contributing
 
 1. Fork it
