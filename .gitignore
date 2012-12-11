@@ -2,3 +2,6 @@
 *.swp
 
 Gemfile.lock
+*.gem
+doc/
+.yardoc
