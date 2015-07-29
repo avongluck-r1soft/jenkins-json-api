@@ -4,5 +4,5 @@ module Jenkins
   #     Z changes on: bugfixes, minor changes/additions
   #     Y changes on: major feature changes/additions
   #     X changes on: "big" release
-  VERSION = "0.0.2"
+  VERSION = "0.0.3"
 end
