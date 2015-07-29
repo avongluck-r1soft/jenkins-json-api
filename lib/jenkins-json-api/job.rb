@@ -24,6 +24,13 @@ module Jenkins
       raise "Inconsistent class state! color: #{color}"
     end
 
+    # Returns all builds from Jenkins instance
+    #
+    # @return [Array<Jenkins::Build>] all build
+    def get_all_builds
+      get_sub_json("#{@url}api/json")['builds'].map { |build| Build.new(build) }
+    end
+
     # Sends build command to job
     # @return [NilClass]
     def build
@@ -56,6 +63,10 @@ module Jenkins
     end
 
     attr_reader :name, :url, :color
+    private
+      def get_sub_json(url)
+        JSON.parse(open(url).read)
+      end
   end
 end
 
