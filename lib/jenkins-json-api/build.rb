@@ -7,6 +7,9 @@ module Jenkins
     def initialize(json)
       @number = json['number']
       @url = json['url']
+      @successful = (json['result'] == "SUCCESS")
+      @builder = json['builtOn']
+      @timestamp = json['timestamp']
     end
 
     # compares two jobs whether they identical or not
@@ -17,6 +20,6 @@ module Jenkins
       r.url  == url
     end
 
-    attr_reader :url, :number
+    attr_reader :url, :number, :successful, :builder, :timestamp
   end
 end

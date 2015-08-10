@@ -28,7 +28,10 @@ module Jenkins
     #
     # @return [Array<Jenkins::Build>] all build
     def get_all_builds
-      get_sub_json("#{@url}api/json")['builds'].map { |build| Build.new(build) }
+      get_sub_json("#{@url}api/json")['builds'].map { |build|
+        details = get_sub_json("#{build['url']}api/json")
+        Build.new(details)
+      }
     end
 
     # Sends build command to job
